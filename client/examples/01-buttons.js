@@ -20,6 +20,7 @@ const css = j2c.sheet({
   },
 
   '.container': {
+    display: 'flex',
     padding: '10px'
   },
 
