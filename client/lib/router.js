@@ -66,3 +66,24 @@ exports.update = Action.caseOn({
 
 exports.view = actions => model =>
   model.page ? model.page.view(actions, model.state) : h('body')
+
+/* USAGE:
+
+const Home   = require('./components/home')
+const Item   = require('./components/item')
+const router = require('./lib/router')
+
+const actions = flyd.stream(),
+      model   = flyd.scan(flip(router.update), router.init(), actions)
+
+const route = router.route('/', {
+  '#/': Home,
+  '#/items/:id': Item
+})
+
+route.map(actions)
+const vnode = model.map(router.view(actions))
+
+flyd.scan(patch, document.body, vnode)
+
+*/

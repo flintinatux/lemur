@@ -31,6 +31,7 @@
     "clean-css": "^3.4.19",
     "closurecompiler": "^1.6.0",
     "flyd": "^0.2.2",
+    "j2c": "^0.11.2",
     "less": "^2.7.1",
     "normalize.css": "^4.2.0",
     "npm-run-all": "^2.3.0",

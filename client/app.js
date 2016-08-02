@@ -9,19 +9,11 @@ const patch = require('snabbdom').init([
   require('snabbdom/modules/style'),
 ])
 
-const Home   = require('./components/home')
-const Item   = require('./components/item')
-const router = require('./lib/router')
+const app = require('./examples/01-buttons')
 
-const actions = flyd.stream(),
-      model   = flyd.scan(flip(router.update), router.init(), actions)
+const msg   = flyd.stream(),
+      model = flyd.scan(flip(app.update), app.init(), msg),
+      root  = document.getElementById('root'),
+      vnode = model.map(app.view(msg))
 
-const route = router.route('/', {
-  '#/': Home,
-  '#/items/:id': Item
-})
-
-route.map(actions)
-const vnode = model.map(router.view(actions))
-
-flyd.scan(patch, document.body, vnode)
+flyd.scan(patch, root, vnode)
