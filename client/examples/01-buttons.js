@@ -5,6 +5,8 @@ const j2c  = require('j2c')
 const K    = require('ramda/src/always')
 const Type = require('union-type')
 
+// Styles
+
 const css = j2c.sheet({
   '.btn': {
     background: '#fff',
@@ -28,12 +30,19 @@ const css = j2c.sheet({
     border: '1px solid #ccc',
     borderRadius: '2px',
     marginRight: '10px',
+    outline: 'none',
     textAlign: 'center',
     width: '50px'
   }
 })
 
+// Model
+
 const Model = Number
+
+exports.init = K(0)
+
+// Update
 
 const Msg = Type({
   Decrement: [],
@@ -41,17 +50,14 @@ const Msg = Type({
   Reset: []
 })
 
-// init :: * -> Model
-exports.init = K(0)
-
-// update :: Msg -> Model -> Model
 exports.update = Msg.caseOn({
   Decrement: dec,
   Increment: inc,
   Reset: K(0)
 })
 
-// view :: Update -> Model -> Vdom Msg
+// View
+
 exports.view = update => model =>
   h(`div.${css.container}`, [
     h('style', css.toString()),
