@@ -9,7 +9,7 @@ const patch = require('snabbdom').init([
   require('snabbdom/modules/style'),
 ])
 
-const app = require('./examples/02-text-fields')
+const app = require('./examples/03-forms')
 
 const msg   = flyd.stream(),
       model = flyd.scan(flip(app.update), app.init(), msg),
