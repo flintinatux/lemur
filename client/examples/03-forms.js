@@ -3,44 +3,7 @@ const compose = require('ramda/src/compose')
 const h       = require('snabbdom/h')
 const j2c     = require('j2c')
 const K       = require('ramda/src/always')
-const merge   = require('ramda/src/merge')
 const Type    = require('union-type')
-
-// Styles
-
-const spacing = '10px'
-
-const css = j2c.sheet({
-  '.btn': {
-    background: '#fff',
-    border: '1px solid #ccc',
-    borderRadius: '2px',
-    cursor: 'pointer',
-    marginBottom: spacing,
-    outline: 'none',
-    width: '100px',
-
-    '&:active': {
-      background: '#eee'
-    }
-  },
-
-  '.container': {
-    alignItems: 'left',
-    display: 'flex',
-    flexDirection: 'column',
-    padding: spacing
-  },
-
-  '.input': {
-    border: '1px solid #ccc',
-    borderRadius: '2px',
-    marginBottom: spacing,
-    outline: 'none',
-    padding: '8px 12px',
-    width: '200px'
-  }
-})
 
 // Model
 
@@ -139,3 +102,39 @@ const viewValidation = update => model => {
     }
   }, !errors.length ? 'OK' : errors.map(error => h('div', error)))
 }
+
+// Styles
+
+const spacing = '10px'
+
+const css = j2c.sheet({
+  '.btn': {
+    background: '#fff',
+    border: '1px solid #ccc',
+    borderRadius: '2px',
+    cursor: 'pointer',
+    marginBottom: spacing,
+    outline: 'none',
+    width: '100px',
+
+    '&:active': {
+      background: '#eee'
+    }
+  },
+
+  '.container': {
+    alignItems: 'left',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: spacing
+  },
+
+  '.input': {
+    border: '1px solid #ccc',
+    borderRadius: '2px',
+    marginBottom: spacing,
+    outline: 'none',
+    padding: '8px 12px',
+    width: '200px'
+  }
+})

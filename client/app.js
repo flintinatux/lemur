@@ -1,6 +1,3 @@
-const flip = require('ramda/src/flip')
-const flyd = require('flyd')
-
 const patch = require('snabbdom').init([
   require('snabbdom/modules/attributes'),
   require('snabbdom/modules/class'),
@@ -9,11 +6,20 @@ const patch = require('snabbdom').init([
   require('snabbdom/modules/style'),
 ])
 
-const app = require('./examples/03-forms')
+const app = require('./examples/04-random')
 
-const msg   = flyd.stream(),
-      model = flyd.scan(flip(app.update), app.init(), msg),
-      root  = document.getElementById('root'),
-      vnode = model.map(app.view(msg))
+const perform = cmd => cmd.fork(update, update)
 
-flyd.scan(patch, root, vnode)
+const render = _ => vnode = patch(vnode, app.view(update, model))
+
+const update = msg => {
+  [ model, cmd ] = app.update(msg, model)
+  render()
+  perform(cmd)
+}
+
+var [ model, cmd ] = app.init(),
+    vnode = document.getElementById('root')
+
+render()
+perform(cmd)

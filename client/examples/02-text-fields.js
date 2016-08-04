@@ -6,31 +6,6 @@ const merge   = require('ramda/src/merge')
 const reverse = require('ramda/src/reverse')
 const Type    = require('union-type')
 
-// Styles
-
-const spacing = '10px'
-
-const css = j2c.sheet({
-  '.arrow': {
-    marginRight: spacing,
-  },
-
-  '.container': {
-    alignItems: 'center',
-    display: 'flex',
-    padding: spacing
-  },
-
-  '.input': {
-    border: '1px solid #ccc',
-    borderRadius: '2px',
-    marginRight: spacing,
-    outline: 'none',
-    padding: '8px 12px',
-    width: '200px'
-  }
-})
-
 // Model
 
 const Model = Object
@@ -75,3 +50,28 @@ exports.view = update => model =>
       }
     })
   ])
+
+// Styles
+
+const spacing = '10px'
+
+const css = j2c.sheet({
+  '.arrow': {
+    marginRight: spacing,
+  },
+
+  '.container': {
+    alignItems: 'center',
+    display: 'flex',
+    padding: spacing
+  },
+
+  '.input': {
+    border: '1px solid #ccc',
+    borderRadius: '2px',
+    marginRight: spacing,
+    outline: 'none',
+    padding: '8px 12px',
+    width: '200px'
+  }
+})

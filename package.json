@@ -30,6 +30,8 @@
     "browserify": "^13.1.0",
     "clean-css": "^3.4.19",
     "closurecompiler": "^1.6.0",
+    "control.async": "^0.5.2",
+    "data.task": "^3.1.0",
     "flyd": "^0.2.2",
     "j2c": "^0.11.2",
     "less": "^2.7.1",

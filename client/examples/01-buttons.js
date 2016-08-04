@@ -5,37 +5,6 @@ const j2c  = require('j2c')
 const K    = require('ramda/src/always')
 const Type = require('union-type')
 
-// Styles
-
-const css = j2c.sheet({
-  '.btn': {
-    background: '#fff',
-    border: '1px solid #ccc',
-    borderRadius: '2px',
-    cursor: 'pointer',
-    marginRight: '10px',
-    outline: 'none',
-
-    '&:active': {
-      background: '#eee'
-    }
-  },
-
-  '.container': {
-    display: 'flex',
-    padding: '10px'
-  },
-
-  '.input': {
-    border: '1px solid #ccc',
-    borderRadius: '2px',
-    marginRight: '10px',
-    outline: 'none',
-    textAlign: 'center',
-    width: '50px'
-  }
-})
-
 // Model
 
 const Model = Number
@@ -78,3 +47,34 @@ exports.view = update => model =>
       on: { click: [update, Msg.Increment()] },
     }, '+')
   ])
+
+// Styles
+
+const css = j2c.sheet({
+  '.btn': {
+    background: '#fff',
+    border: '1px solid #ccc',
+    borderRadius: '2px',
+    cursor: 'pointer',
+    marginRight: '10px',
+    outline: 'none',
+
+    '&:active': {
+      background: '#eee'
+    }
+  },
+
+  '.container': {
+    display: 'flex',
+    padding: '10px'
+  },
+
+  '.input': {
+    border: '1px solid #ccc',
+    borderRadius: '2px',
+    marginRight: '10px',
+    outline: 'none',
+    textAlign: 'center',
+    width: '50px'
+  }
+})
